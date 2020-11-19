@@ -164,6 +164,7 @@
                 director : document.getElementById("director").value,
                 miniatura : document.getElementById("miniatura").value 
             }
+            
             localStorage.mis_peliculas.push(peli);
             indexContr();
 
@@ -186,12 +187,19 @@
         const deleteContr = (i) => {
             // Completar:  controlador que actualiza el modelo borrando la película seleccionada
             // Genera diálogo de confirmación: botón Aceptar devuelve true, Cancel false
-            
-            let pelicula = JSON.parse(localStorage.mis_peliculas);
+            let result = window.confirm("¿Está seguro que desea borrar la película?");
+
+            if (result === true){
+                let pelicula = JSON.parse(localStorage.mis_peliculas);
             pelicula.splice(i,1);
 
             localStorage.mis_peliculas = JSON.stringify(pelicula);
             indexContr();
+                
+            } else {
+                indexContr();
+            }
+
 
         };
 
