@@ -164,8 +164,11 @@
                 director : document.getElementById("director").value,
                 miniatura : document.getElementById("miniatura").value 
             }
-            
-            localStorage.mis_peliculas.push(peli);
+            JSON.parse(localStorage.mis_peliculas);
+
+            let peliculas = peli.push();
+
+            localStorage.mis_peliculas = JSON.stringify(peliculas);
             indexContr();
 
         };
